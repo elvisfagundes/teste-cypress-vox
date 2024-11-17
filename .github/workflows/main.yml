@@ -13,13 +13,13 @@ jobs:
         uses: actions/setup-node@v4.1.0
         with:
           node-version: 20.17.0
-        
-      - name: Cypress run
-        run: | 
-          npm install cypress
-          npx cypress open        
-        
           
+      - name: Build the app
+        run: npm run build
+        
+      - name: E2E Testes
+        uses: cypress-io/github-action@v6 
+        
       - name: Save build folder
         uses: actions/upload-artifact@v4
         with:
