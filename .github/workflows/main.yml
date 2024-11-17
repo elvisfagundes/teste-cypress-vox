@@ -16,3 +16,6 @@ jobs:
         
       - name: E2E Testes
         uses: cypress-io/github-action@v6 
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v3.1.0
