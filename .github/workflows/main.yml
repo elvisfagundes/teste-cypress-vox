@@ -15,11 +15,10 @@ jobs:
           node-version: 20.17.0
         
       - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          build: npm run build
-          start: npm start
-          test: npx cypress run
+        run: | 
+          npm install cypress
+          npx cypress open        
+        
           
       - name: Save build folder
         uses: actions/upload-artifact@v4
