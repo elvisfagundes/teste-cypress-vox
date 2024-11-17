@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/elvisfagundes/teste-cypress-vox.git"
   },
-  "test": "echo \"Error: no test specified\" && exit 1",
+  "test": "npx cypress run",
   "author": "Elvis Fagundes",
   "license": "MIT",
   "bugs": {
