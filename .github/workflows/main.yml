@@ -17,16 +17,18 @@ jobs:
       - name: Install dependencies 
         run: |
           npm install --save-dev cypress-ctrf-json-reporter
-          npx github-actions-ctrf ctrf/ctrf-report.json
+          npm install github-actions-ctrf
           
       - name: E2E Testes
-        uses: cypress-io/github-action@v6 
+        uses: cypress-io/github-action@v6.5.0 
+        with:
+          publish-summary: false
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v3.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
+      
       - name: Publish CTRF Suite Folded Summary
-        run: npx github-actions-ctrf suite-folded ctrf/ctrf-report.json
+        run: npx github-actions-ctrf suite-list path-to-your-ctrf-report.json
         if: always()
