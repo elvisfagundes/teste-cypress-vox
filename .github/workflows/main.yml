@@ -13,9 +13,6 @@ jobs:
         uses: actions/setup-node@v4.1.0
         with:
           node-version: 20.17.0
-          
-      - name: Install CTRF
-        uses: github-actions-ctrf@0.0.49
         
       - name: E2E Testes
         uses: cypress-io/github-action@v6 
@@ -26,5 +23,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Publish CTRF Test Summary Results
-        run: npx github-actions-ctrf summary ctrf-ctrf-report.json
+        run: npx github-actions-ctrf summary ctrf/ctrf-report.json
         if: always()
