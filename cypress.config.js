@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+const { GenerateCtrfReport } = require('cypress-ctrf-json-reporter')
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
@@ -20,7 +21,7 @@ module.exports = defineConfig({
     viewportWidth: 1920,
     viewportHeight: 1080,
     setupNodeEvents(on, config) {
-
+      require('cypress-mochawesome-reporter/plugin')(on)
       new GenerateCtrfReport({
         on,
       })
