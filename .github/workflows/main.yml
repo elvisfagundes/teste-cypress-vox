@@ -25,3 +25,10 @@ jobs:
       - name: Publish CTRF Suite Folded Summary
         run: npx github-actions-ctrf suite-list path-to-your-ctrf-report.json
         if: always()
+
+      - name: SonarCloud Summary Action
+        uses: thecanadianroot/sonarcloud-summary-action@v1
+        with:
+          github-repository: ${{ github.repository }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pull-request: '12345'
