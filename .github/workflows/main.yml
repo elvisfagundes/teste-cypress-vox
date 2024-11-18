@@ -13,7 +13,12 @@ jobs:
         uses: actions/setup-node@v4.1.0
         with:
           node-version: 20.17.0
-        
+          
+      - name: Install dependencies 
+        run: |
+          npm install --save-dev cypress-ctrf-json-reporter
+          npm install @faker-js/faker --save-dev
+          
       - name: E2E Testes
         uses: cypress-io/github-action@v6 
 
@@ -22,6 +27,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      - name: Publish CTRF Test Summary Results
-        run: npx github-actions-ctrf summary ctrf/ctrf-report.json
+      - name: Publish CTRF Suite Folded Summary
+        run: npx github-actions-ctrf suite-folded path-to-your-ctrf-report.json
         if: always()
