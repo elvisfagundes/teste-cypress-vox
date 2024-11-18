@@ -22,9 +22,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-      - name: CTRF build
-        run: npx github-actions-ctrf ctrf-report.json
-
-      - name: Publish CTRF Suite Folded Summary
-        run: npx github-actions-ctrf suite-list ctrf-report.json
+      - name: Publish CTRF Test Summary Results
+        run: npx github-actions-ctrf summary ctrf-ctrf-report.json
         if: always()
